@@ -36,6 +36,7 @@ public class VendingMachineServer implements Runnable {
 	}
 
 	public void run() {
+		System.out.println("SmartCalsVendingMachine server is on!");
 		try {
 			ServerSocket ss = new ServerSocket(Const.SERVER_PORT);
 			while (true) {
