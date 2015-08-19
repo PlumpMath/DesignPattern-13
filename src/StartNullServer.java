@@ -1,4 +1,4 @@
-//start server with null database object to test socket connection
+//start server with NullDatabase object to test socket connection
 public class StartNullServer {
 	public static void main(String[] args){
 	    VendingMachineServer market = new VendingMachineServer();

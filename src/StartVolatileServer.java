@@ -1,8 +1,8 @@
-//start server with SQLDatabase object
-public class StartServer {
+//start server with VolatileDatabase object
+public class StartVolatileServer {
 	public static void main(String[] args){
 	    VendingMachineServer market = new VendingMachineServer();
 	    (new Thread(market)).start();
-	    new BasicServer(new SQLDatabase());
+	    new BasicServer(new VolatileDatabase());
 	}
 }

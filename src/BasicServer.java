@@ -1,6 +1,4 @@
 //server real object, implementing the same interfaces as the proxies
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.json.JSONObject;
@@ -88,7 +86,7 @@ public class BasicServer implements CustomerServer, EmployeeServer, MachineServe
 	}
 	
 	public String getFile(String path) throws Exception {
-		return new String(Files.readAllBytes(Paths.get(path)));
+		return dbm.getFile(path);
 	}
 	
 	public void updateMachineItemQuantity(int machineid, int itemid, int quantity) throws Exception {
