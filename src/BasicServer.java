@@ -9,9 +9,9 @@ public class BasicServer implements CustomerServer, EmployeeServer, MachineServe
 	//constructor
 	public BasicServer(DBManager db) {
 		dbm = db;
-		VendingMachineServer.setCustomerInstance(this);
-		VendingMachineServer.setEmployeeInstance(this);
-		VendingMachineServer.setMachineInstance(this);
+		SmartCalsCustomerServer.setCustomerInstance(this);
+		SmartCalsEmployeeServer.setEmployeeInstance(this);
+		SmartCalsMachineServer.setMachineInstance(this);
 	}
 
 	//methods in CustomerServer
