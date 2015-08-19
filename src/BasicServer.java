@@ -1,6 +1,5 @@
 //server real object, implementing the same interfaces as the proxies
 import java.util.ArrayList;
-
 import org.json.JSONObject;
 
 public class BasicServer implements CustomerServer, EmployeeServer, MachineServer {
