@@ -5,7 +5,7 @@ public class StartServer {
 	
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
-	    System.out.println("Which database would you like to use?\n1 for SQLDatabase, 2 for VolatileDatabase, 3 for NullDatabase");
+	    System.out.println("Which database would you like to use? (Enter 1 for SQLDatabase, 2 for VolatileDatabase, 3 for NullDatabase)");
 	    int choice = scanner.nextInt();
 	    scanner.close();
 	    if (choice == 1){
@@ -20,7 +20,6 @@ public class StartServer {
 	    } else {
 	    	System.out.println("Wrong input!");
 	    }
-	    
 	}
 	
 	public static void startServer(){
