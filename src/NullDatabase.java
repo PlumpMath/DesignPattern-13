@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 
 public class NullDatabase implements DBManager {
+	
+	public NullDatabase(){
+		System.out.println("Null database is used.");
+	}
 
 	public ArrayList<Item> getAllItems() {
 		ArrayList<Item> items = new ArrayList<Item>();

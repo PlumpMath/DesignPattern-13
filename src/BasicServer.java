@@ -1,4 +1,6 @@
 //server real object, implementing the same interfaces as the proxies
+//handles requests by talking to database layer
+//uses a bridge pattern to allow usage of different database implementations
 import java.util.ArrayList;
 import org.json.JSONObject;
 

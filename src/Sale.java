@@ -1,5 +1,4 @@
-
-
+//Sale class, holding the information of a sale transaction
 import java.sql.ResultSet;
 
 public class Sale {

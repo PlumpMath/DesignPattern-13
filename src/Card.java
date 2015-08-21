@@ -1,5 +1,5 @@
+//Card class, holding the information of a card
 import java.sql.ResultSet;
-
 
 public class Card {
 	private int id;

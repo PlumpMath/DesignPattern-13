@@ -10,17 +10,19 @@ public class SQLDatabase implements DBManager {
 	Properties property;
 
 	public SQLDatabase() {
+		System.out.println("MySQL database is used.");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
 		}
 		connection = "jdbc:mysql://127.0.0.1/smartcalsvendingmachine";
 		property = new Properties();
-		property.put("user", "shan");
+		property.put("user", "root");
 		property.put("password", "peach");
 	}
 
 	public SQLDatabase(String connection, String user, String pwd) {
+		System.out.println("MySQL database is used.");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {

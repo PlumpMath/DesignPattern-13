@@ -1,15 +1,15 @@
 /* 
- * VendingMachineServer subclass, holding a singleton for MachineServer and is in charge of 
- * starting a server stub to directly communicate with each machine through socket
+ * VendingMachineServer subclass, holding a singleton for MachineServer.
+ * It directly communicates with each machine through socket and starts
+ * a server stub thread whenever a request is received.
 */
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SmartCalsMachineServer extends VendingMachineServer {
 
-	static MachineServer machineSingleton;
+	private static MachineServer machineSingleton;
 
-	static void setMachineInstance(MachineServer instance) {
+	public static void setMachineInstance(MachineServer instance) {
 		machineSingleton = instance;
 	}
 
@@ -17,18 +17,15 @@ public class SmartCalsMachineServer extends VendingMachineServer {
 		return machineSingleton;
 	}
 
-	@Override
-	public void run() {
-		System.out.println("SmartCalsVendingMachine machine server is on!");
-		try {
-			ServerSocket ss = new ServerSocket(Const.MACHINE_PORT);
-			while (true) {
-				Socket sk = ss.accept();
-				VMServerStub stub = new MachineServerStub(sk, getMachineInstance());
-				(new Thread(stub)).start();
-			}
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-		}
+	protected String getName(){
+		return "machine server";
+	}
+	
+	protected int getPort(){
+		return Const.MACHINE_PORT;
+	}
+	
+	protected VMServerStub getServerStub(Socket sk){
+		return new MachineServerStub(sk, getMachineInstance());
 	}
 }

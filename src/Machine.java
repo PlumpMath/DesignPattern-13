@@ -1,5 +1,4 @@
-
-
+//Machine class, holding the information of a machine
 import java.sql.ResultSet;
 
 public class Machine {

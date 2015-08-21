@@ -1,5 +1,4 @@
-
-
+//MachineItem class, holding the information of a machine-item relation
 import java.sql.ResultSet;
 
 public class MachineItem {

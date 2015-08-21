@@ -12,6 +12,7 @@ public class VolatileDatabase implements DBManager {
 	private ArrayList<Card> cardList;
 	
 	public VolatileDatabase(){
+		System.out.println("Volatile database is used.");
 		itemList = new ArrayList<>();
 		machineList = new ArrayList<>();
 		machineItemList = new ArrayList<>();
