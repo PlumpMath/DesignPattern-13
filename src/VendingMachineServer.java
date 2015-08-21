@@ -5,7 +5,7 @@ import java.net.Socket;
 abstract class VendingMachineServer implements Runnable {
 	private boolean stopServer = false;
 	
-	public void setStop(boolean stop){
+	public final void setStop(boolean stop){
 		stopServer = stop;
 	}
 	
