@@ -15,6 +15,10 @@ public class BasicServer implements CustomerServer, EmployeeServer, MachineServe
 		SmartCalsEmployeeServer.setEmployeeInstance(this);
 		SmartCalsMachineServer.setMachineInstance(this);
 	}
+	
+	public void setDatabase(DBManager db){
+		dbm = db;
+	}
 
 	//methods in CustomerServer
 	public int buyCard(double balance) throws Exception {

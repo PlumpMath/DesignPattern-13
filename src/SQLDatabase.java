@@ -10,7 +10,6 @@ public class SQLDatabase implements DBManager {
 	Properties property;
 
 	public SQLDatabase() {
-		System.out.println("MySQL database is used.");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -22,7 +21,6 @@ public class SQLDatabase implements DBManager {
 	}
 
 	public SQLDatabase(String connection, String user, String pwd) {
-		System.out.println("MySQL database is used.");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -33,7 +31,7 @@ public class SQLDatabase implements DBManager {
 		property.put("password", pwd);
 	}
 
-	ResultSet select(String query) throws SQLException {
+	private ResultSet select(String query) throws SQLException {
 		Connection conn = DriverManager.getConnection(connection, property);
 		Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
 				ResultSet.CONCUR_READ_ONLY);

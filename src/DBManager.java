@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 
 public interface DBManager {
-
+	
 	public ArrayList<Item> getAllItems();
 	public ArrayList<Item> getOtherItems(int machine);
 	public Item getItem(int code);
