@@ -19,6 +19,7 @@ abstract class VendingMachineServer implements Runnable {
 				stub.setSocket(sk);
 				(new Thread(stub)).start();
 			}
+			ss.close();
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 		}
