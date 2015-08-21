@@ -1,11 +1,8 @@
 //Machine server stub subclass, which handles all machine related commands
-import java.net.Socket;
-
 public class MachineServerStub extends VMServerStub {
-	MachineServer server;
+	private MachineServer server;
 
-	MachineServerStub(Socket sk, MachineServer m) {
-		super(sk);
+	public MachineServerStub(MachineServer m) {
 		server = m;
 	}
 

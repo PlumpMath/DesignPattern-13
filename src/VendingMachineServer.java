@@ -15,7 +15,8 @@ abstract class VendingMachineServer implements Runnable {
 			ServerSocket ss = new ServerSocket(getPort());
 			while (!stopServer) {
 				Socket sk = ss.accept();
-				VMServerStub stub = getServerStub(sk);
+				VMServerStub stub = getServerStub();
+				stub.setSocket(sk);
 				(new Thread(stub)).start();
 			}
 		} catch (Exception ex) {
@@ -27,6 +28,6 @@ abstract class VendingMachineServer implements Runnable {
 	
 	abstract protected int getPort();
 	
-	abstract protected VMServerStub getServerStub(Socket sk);
+	abstract protected VMServerStub getServerStub();
 	
 }

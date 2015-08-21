@@ -1,11 +1,8 @@
 //Employee server stub subclass, which handles all employee related commands
-import java.net.Socket;
-
 public class EmployeeServerStub extends VMServerStub {
-	EmployeeServer server;
+	private EmployeeServer server;
 
-	EmployeeServerStub(Socket sk, EmployeeServer e) {
-		super(sk);
+	public EmployeeServerStub(EmployeeServer e) {
 		server = e;
 	}
 

@@ -3,8 +3,6 @@
  * It directly communicates with each employee through socket and starts
  * a server stub thread whenever a request is received.
 */
-import java.net.Socket;
-
 public class SmartCalsEmployeeServer extends VendingMachineServer {
 
 	private static EmployeeServer employeeSingleton;
@@ -12,11 +10,7 @@ public class SmartCalsEmployeeServer extends VendingMachineServer {
 	public static void setEmployeeInstance(EmployeeServer instance) {
 		employeeSingleton = instance;
 	}
-
-	public static EmployeeServer getEmployeeInstance() {
-		return employeeSingleton;
-	}
-
+	
 	protected String getName(){
 		return "employee server";
 	}
@@ -25,7 +19,7 @@ public class SmartCalsEmployeeServer extends VendingMachineServer {
 		return Const.EMPLOYEE_PORT;
 	}
 	
-	protected VMServerStub getServerStub(Socket sk){
-		return new EmployeeServerStub(sk, getEmployeeInstance());
+	protected VMServerStub getServerStub(){
+		return new EmployeeServerStub(employeeSingleton);
 	}
 }

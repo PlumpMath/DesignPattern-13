@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 public class BasicServer implements CustomerServer, EmployeeServer, MachineServer {
 	
-	DBManager dbm;
+	private DBManager dbm;
 	
 	//constructor
 	public BasicServer(DBManager db) {

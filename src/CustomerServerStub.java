@@ -1,11 +1,8 @@
 //Customer server stub subclass, which handles all customer related commands
-import java.net.Socket;
-
 public class CustomerServerStub extends VMServerStub {
-	CustomerServer server;
+	private CustomerServer server;
 
-	CustomerServerStub(Socket sk, CustomerServer c) {
-		super(sk);
+	public CustomerServerStub(CustomerServer c) {
 		server = c;
 	}
 

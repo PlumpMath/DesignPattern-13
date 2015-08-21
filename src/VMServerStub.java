@@ -4,8 +4,9 @@ import java.net.Socket;
 
 //Server stub super class which directly communicate with clients through socket, parsing all the incoming commands
 abstract class VMServerStub implements Runnable{
-	Socket socket;
-	public VMServerStub(Socket sk){
+	private Socket socket;
+	
+	public final void setSocket(Socket sk){
 		socket = sk;
 	}
 	
