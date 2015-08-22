@@ -1,14 +1,14 @@
 /* 
- * VendingMachineServer subclass, holding a singleton for EmployeeServer.
+ * VendingMachineServer subclass.
  * It directly communicates with each employee through socket and starts
- * a server stub thread whenever a request is received.
+ * a server stub thread whenever a connection is set up.
 */
 public class SmartCalsEmployeeServer extends VendingMachineServer {
 
-	private static EmployeeServer employeeSingleton;
-
-	public static void setEmployeeInstance(EmployeeServer instance) {
-		employeeSingleton = instance;
+	private static EmployeeServer employeeServer;
+	
+	public SmartCalsEmployeeServer(EmployeeServer server){
+		employeeServer = server;
 	}
 	
 	protected String getName(){
@@ -20,6 +20,6 @@ public class SmartCalsEmployeeServer extends VendingMachineServer {
 	}
 	
 	protected VMServerStub getServerStub(){
-		return new EmployeeServerStub(employeeSingleton);
+		return new EmployeeServerStub(employeeServer);
 	}
 }

@@ -5,10 +5,15 @@ import java.net.Socket;
 abstract class VendingMachineServer implements Runnable {
 	private boolean stopServer = false;
 	
-	public final void setStop(boolean stop){
+	//setStop() method to stop the thread
+	public final void setStop(boolean stop) {
 		stopServer = stop;
+		if(stop){
+			System.out.println("SmartCalsVendingMachine " + getName() + " is off!");
+		}
 	}
 	
+	//template method
 	public final void run() {
 		System.out.println("SmartCalsVendingMachine " + getName() + " is on!");
 		try {
@@ -25,6 +30,7 @@ abstract class VendingMachineServer implements Runnable {
 		}
 	}
 	
+	//abstract methods to be implemented in concrete classes
 	abstract protected String getName();
 	
 	abstract protected int getPort();

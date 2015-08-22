@@ -6,10 +6,12 @@ import java.net.Socket;
 abstract class VMServerStub implements Runnable{
 	private Socket socket;
 	
+	//setSocket() method to set the Socket variable
 	public final void setSocket(Socket sk){
 		socket = sk;
 	}
 	
+	//template method
 	public final void run() {
 		try {
 			InputStream in = socket.getInputStream();
@@ -30,5 +32,6 @@ abstract class VMServerStub implements Runnable{
 		}
 	}
 	
+	//abstract method to be implemented by concrete classes
 	abstract protected String handleRequest(String request);
 }

@@ -1,14 +1,14 @@
 /* 
- * VendingMachineServer subclass, holding a singleton for CustomerServer.
+ * VendingMachineServer subclass.
  * It directly communicates with each customer through socket and starts
- * a server stub thread whenever a request is received.
+ * a server stub thread whenever a connection is set up.
 */
 public class SmartCalsCustomerServer extends VendingMachineServer {
 
-	private static CustomerServer customerSingleton;
-
-	public static void setCustomerInstance(CustomerServer instance) {
-		customerSingleton = instance;
+	private static CustomerServer customerServer;
+	
+	public SmartCalsCustomerServer(CustomerServer server){
+		customerServer = server;
 	}
 
 	protected String getName(){
@@ -20,6 +20,6 @@ public class SmartCalsCustomerServer extends VendingMachineServer {
 	}
 	
 	protected VMServerStub getServerStub(){
-		return new CustomerServerStub(customerSingleton);
+		return new CustomerServerStub(customerServer);
 	}
 }

@@ -2,10 +2,12 @@
 public class EmployeeServerStub extends VMServerStub {
 	private EmployeeServer server;
 
+	//constructor
 	public EmployeeServerStub(EmployeeServer e) {
 		server = e;
 	}
 
+	//to implement the abstract method in super class
 	protected String handleRequest(String request){
 		String response;
 		String[] tokens = request.split(" ");
