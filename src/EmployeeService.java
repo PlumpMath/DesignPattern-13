@@ -1,5 +1,5 @@
 //EmployeeServer interface, defining an interface for employee-server communication
-public interface EmployeeService extends Server {
+public interface EmployeeService extends Service {
 	
 	public String authenticate(int employee, String password) throws Exception;
 

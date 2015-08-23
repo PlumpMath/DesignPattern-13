@@ -1,5 +1,5 @@
 //MachineServer interface, defining an interface for machine-server communication
-public interface MachineService extends Server {
+public interface MachineService extends Service {
 	
 	public int checkMachine(int machine) throws Exception;
 
