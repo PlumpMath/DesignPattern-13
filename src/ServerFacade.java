@@ -6,14 +6,14 @@ public class ServerFacade {
 	public final static int VOLATILE_DATABASE = 2;
 	public final static int NULL_DATABASE = 3;
 	
-	private ArrayList<VMServerThread> serverList;
+	private ArrayList<ServerThread> serverList;
 
 	public ServerFacade(){
 		serverList = new ArrayList<>();
 	}
 	
 	public void startSmartCalsServers(){
-		CentralServer server = CentralServer.instance();
+		ServerProxy server = ServerProxy.instance();
 		serverList.add(new CustomerServerThread(server));
 		serverList.add(new EmployeeServerThread(server));
 		serverList.add(new MachineServerThread(server));
@@ -25,7 +25,7 @@ public class ServerFacade {
 	}
 	
 	public void switchDatabase(int choice){
-		CentralServer server = CentralServer.instance();
+		ServerProxy server = ServerProxy.instance();
 		switch (choice) {
 		case SQL_DATABASE:
 			server.setDatabase(new SQLDatabase());

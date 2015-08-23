@@ -1,13 +1,13 @@
 /* 
- * VendingMachineServer subclass.
+ * Subclass of ServerThread.
  * It directly communicates with each machine through socket and starts
  * a server stub thread whenever a connection is set up.
 */
-public class MachineServerThread extends VMServerThread {
+public class MachineServerThread extends ServerThread {
 
-	private static MachineServer machineServer;
+	private static MachineService machineServer;
 	
-	public MachineServerThread(MachineServer server){
+	public MachineServerThread(MachineService server){
 		machineServer = server;
 	}
 
@@ -19,7 +19,7 @@ public class MachineServerThread extends VMServerThread {
 		return Const.MACHINE_PORT;
 	}
 	
-	protected VMServerStub getServerStub(){
-		return new MachineServerStub(machineServer);
+	protected SocketSession getServerStub(){
+		return new MachineSocketSession(machineServer);
 	}
 }

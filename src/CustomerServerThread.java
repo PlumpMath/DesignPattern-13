@@ -1,13 +1,13 @@
 /* 
- * VendingMachineServer subclass.
+ * Subclass of ServerThread.
  * It directly communicates with each customer through socket and starts
  * a server stub thread whenever a connection is set up.
 */
-public class CustomerServerThread extends VMServerThread {
+public class CustomerServerThread extends ServerThread {
 
-	private static CustomerServer customerServer;
+	private static CustomerService customerServer;
 	
-	public CustomerServerThread(CustomerServer server){
+	public CustomerServerThread(CustomerService server){
 		customerServer = server;
 	}
 
@@ -19,7 +19,7 @@ public class CustomerServerThread extends VMServerThread {
 		return Const.CUSTOMER_PORT;
 	}
 	
-	protected VMServerStub getServerStub(){
-		return new CustomerServerStub(customerServer);
+	protected SocketSession getServerStub(){
+		return new CustomerSocketSession(customerServer);
 	}
 }

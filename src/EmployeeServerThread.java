@@ -1,13 +1,13 @@
 /* 
- * VendingMachineServer subclass.
+ * Subclass of ServerThread.
  * It directly communicates with each employee through socket and starts
  * a server stub thread whenever a connection is set up.
 */
-public class EmployeeServerThread extends VMServerThread {
+public class EmployeeServerThread extends ServerThread {
 
-	private static EmployeeServer employeeServer;
+	private static EmployeeService employeeServer;
 	
-	public EmployeeServerThread(EmployeeServer server){
+	public EmployeeServerThread(EmployeeService server){
 		employeeServer = server;
 	}
 	
@@ -19,7 +19,7 @@ public class EmployeeServerThread extends VMServerThread {
 		return Const.EMPLOYEE_PORT;
 	}
 	
-	protected VMServerStub getServerStub(){
-		return new EmployeeServerStub(employeeServer);
+	protected SocketSession getServerStub(){
+		return new EmployeeSocketSession(employeeServer);
 	}
 }
