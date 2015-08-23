@@ -6,7 +6,7 @@ public class ServerFacade {
 	public final static int VOLATILE_DATABASE = 2;
 	public final static int NULL_DATABASE = 3;
 	
-	ArrayList<VendingMachineServer> serverList;
+	private ArrayList<VMServerThread> serverList;
 
 	public ServerFacade(){
 		serverList = new ArrayList<>();
@@ -14,9 +14,9 @@ public class ServerFacade {
 	
 	public void startSmartCalsServers(){
 		CentralServer server = CentralServer.instance();
-		serverList.add(new SmartCalsCustomerServer(server));
-		serverList.add(new SmartCalsEmployeeServer(server));
-		serverList.add(new SmartCalsMachineServer(server));
+		serverList.add(new CustomerServerThread(server));
+		serverList.add(new EmployeeServerThread(server));
+		serverList.add(new MachineServerThread(server));
 		for(int i = 0; i < serverList.size(); i++){
 			(new Thread(serverList.get(i))).start();
 		}
@@ -47,7 +47,8 @@ public class ServerFacade {
 	
 	public void stopSmartCalsServers(){
 		for(int i = 0; i < serverList.size(); i++){
-			serverList.get(i).setStop(true);
+			serverList.get(i).stopServer();
 		}
+		serverList.clear();
 	}
 }
