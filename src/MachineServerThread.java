@@ -5,9 +5,9 @@
 */
 public class MachineServerThread extends ServerThread {
 
-	private static MachineService machineServer;
+	private static MachineServerService machineServer;
 	
-	public MachineServerThread(MachineService server){
+	public MachineServerThread(MachineServerService server){
 		machineServer = server;
 	}
 

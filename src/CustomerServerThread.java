@@ -5,9 +5,9 @@
 */
 public class CustomerServerThread extends ServerThread {
 
-	private static CustomerService customerServer;
+	private static CustomerServerService customerServer;
 	
-	public CustomerServerThread(CustomerService server){
+	public CustomerServerThread(CustomerServerService server){
 		customerServer = server;
 	}
 

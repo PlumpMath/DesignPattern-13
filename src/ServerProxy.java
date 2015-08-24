@@ -5,7 +5,7 @@
 import java.util.ArrayList;
 import org.json.JSONObject;
 
-public class ServerProxy implements CustomerService, EmployeeService, MachineService {
+public class ServerProxy implements CustomerServerService, EmployeeServerService, MachineServerService {
 	
 	private static ServerProxy singleton = new ServerProxy();
 	private DBManager dbm;

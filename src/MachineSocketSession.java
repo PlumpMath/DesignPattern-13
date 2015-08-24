@@ -1,9 +1,9 @@
 //Machine server stub subclass, which handles all machine related commands
 public class MachineSocketSession extends SocketSession {
-	private MachineService server;
+	private MachineServerService server;
 
 	//constructor
-	public MachineSocketSession(MachineService m) {
+	public MachineSocketSession(MachineServerService m) {
 		server = m;
 	}
 

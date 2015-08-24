@@ -5,9 +5,9 @@
 */
 public class EmployeeServerThread extends ServerThread {
 
-	private static EmployeeService employeeServer;
+	private static EmployeeServerService employeeServer;
 	
-	public EmployeeServerThread(EmployeeService server){
+	public EmployeeServerThread(EmployeeServerService server){
 		employeeServer = server;
 	}
 	

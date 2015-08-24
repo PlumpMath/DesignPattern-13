@@ -1,9 +1,9 @@
 //Customer server stub subclass, which handles all customer related commands
 public class CustomerSocketSession extends SocketSession {
-	private CustomerService server;
+	private CustomerServerService server;
 
 	//constructor
-	public CustomerSocketSession(CustomerService c) {
+	public CustomerSocketSession(CustomerServerService c) {
 		server = c;
 	}
 

@@ -1,9 +1,9 @@
 //Employee server stub subclass, which handles all employee related commands
 public class EmployeeSocketSession extends SocketSession {
-	private EmployeeService server;
+	private EmployeeServerService server;
 
 	//constructor
-	public EmployeeSocketSession(EmployeeService e) {
+	public EmployeeSocketSession(EmployeeServerService e) {
 		server = e;
 	}
 
