@@ -5,12 +5,12 @@ public class Card {
 	private int id;
 	private double balance;
 	
-	Card (int id, double b){
+	public Card (int id, double b){
 		this.id = id;
 		balance = b;
 	}
 	
-	Card (ResultSet rs) throws java.sql.SQLException {
+	public Card (ResultSet rs) throws java.sql.SQLException {
 	      id = rs.getInt("ID");
 	      balance = rs.getDouble("double");
 	}

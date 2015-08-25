@@ -1,4 +1,5 @@
 //concrete database: mysql database that stores all the data persistently
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;
@@ -12,11 +13,12 @@ public class SQLDatabase implements DBManager {
 	public SQLDatabase() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
 		connection = "jdbc:mysql://127.0.0.1/smartcalsvendingmachine";
 		property = new Properties();
-		property.put("user", "root");
+		property.put("user", "shan");
 		property.put("password", "peach");
 	}
 
@@ -242,7 +244,12 @@ public class SQLDatabase implements DBManager {
 		return newBalance;
 	}
 
-	public String getFile(String path) throws Exception {
-		return new String(Files.readAllBytes(Paths.get(path)));
+	public String getFile(String path) {
+		try{
+			return new String(Files.readAllBytes(Paths.get(path)));
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			return path + " file to be added.";
+		}
 	}
 }
