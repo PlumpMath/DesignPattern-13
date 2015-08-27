@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartCalsVendingMachineServer
+Bundle-SymbolicName: SmartCalsVendingMachineServer
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: SmartCalsVendingMachineServer.jar,
+ Shan/workspace/SmartCalsVendingMachineServer/lib/org.json-20120521.jar,
+ Shan/workspace/SmartCalsVendingMachineServer/lib/com.mysql.jdbc_5.1.5.jar
+Export-Package: Database,
+ Server,
+ ServerStarter
